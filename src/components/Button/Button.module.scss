@@ -1,0 +1,45 @@
+.Button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  min-height: 44px;
+  padding-inline: 16px;
+  padding-block: 10px;
+  border-radius: 2px;
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  transition: 80ms cubic-bezier(.65, 0, .35, 1);
+  transition-property: background-color, border-color, color;
+
+  &:disabled {
+    pointer-events: none;
+    background-color: var(--button-disabled-background);
+    color: var(--button-disabled-text);
+  }
+
+  &:not(:disabled):where([data-variant="default"]) {
+    background-color: transparent;
+    color: var(--button-default-color-text);
+    border: var(--border-width-thin) solid var(--button-default-border-color);
+
+    &:hover {
+      background-color: var(--button-default-background-hover);
+    }
+  }
+
+  &:where([data-variant="primary"]) {
+    background-color: var(--button-primary-background);
+    color: var(--button-primary-text);
+
+    &:focus-visible {
+      outline: 2px solid var(--button-primary-background);
+      outline-offset: 2px;
+    }
+  }
+}
